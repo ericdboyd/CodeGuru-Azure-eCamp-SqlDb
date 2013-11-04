@@ -1,0 +1,24 @@
+﻿@using CodeGuru.eSeminar.Web.ShoppingListService
+@model IList<Person>
+@{
+    ViewBag.Title = "Home Page";
+}
+<div class="row">
+    <div class="col-md-12">
+        <h2>Things to buy:</h2>
+        <table class="table">
+            @foreach (Person person in Model)
+            {
+                foreach (Item item in person.Items)
+                {
+                    <tr>
+                        <td>@person.FirstName @person.LastName</td>
+                        <td>@item.ProductName</td>
+                        <td>@string.Format("{0:C}",item.Price)</td>
+                        <td>@item.Quantity</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</div>
